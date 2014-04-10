@@ -21,6 +21,20 @@ with the details such as request envelopes, deserialization and so on.
     # => [Nokogiri::XML::Element, Nokogiri::XML::Element, ...]
 
 
+Rails logger integration
+------------------------
+
+If a logger is supplied during the engine initialization it will be used
+to log the queries made and the results received.
+
+The Rails logger can be easily integrated passing `Rails.logger` to the
+engine constructor.
+
+    xml = XPathQuery::Exist.new('http://localhost:8080/...', Rails.logger)
+
+The messages will be logged at the `:debug` level.
+
+
 Requirements
 ------------
 

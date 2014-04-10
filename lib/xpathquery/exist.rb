@@ -14,7 +14,7 @@ module XPathQuery
 			db = RestClient::Resource.new(@db_url)
 
 			query_message = query_message(q, ns)
-			@logger and @logger.debug "connecting to <#{@db_url}> to send the query #{query_message}"
+			@logger and @logger.debug { "connecting to <#{@db_url}> to send the query #{query_message}" }
 
 			opts = {
 				:content_type => 'application/xml'
@@ -22,7 +22,7 @@ module XPathQuery
 
 			response = db.post(query_message, opts)
 
-			@logger and @logger.debug "received XML response\n#{response}"
+			@logger and @logger.debug { "received XML response\n#{response}" }
 
 			xml_response = ::Nokogiri::XML(response)
 
