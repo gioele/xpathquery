@@ -1,0 +1,19 @@
+<library xmlns:foaf="http://xmlns.com/foaf/0.1/">
+	<patron xml:id="p1" xmlns:foaf="http://xmlns.com/foaf/0.1/">
+		  <foaf:name>Mel Petit</foaf:name>
+	</patron>
+
+	<patron xml:id="p2">
+		  <foaf:name>Bertrand Müller</foaf:name>
+	</patron>
+
+	<book>
+	</book>
+
+	<book>
+	</book>
+
+	<book>
+	</book>
+</library>
+<!-- This is free software released into the public domain (CC0 license). -->
