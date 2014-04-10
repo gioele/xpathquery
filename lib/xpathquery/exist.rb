@@ -1,5 +1,11 @@
 require 'nokogiri'
-require 'rest_client'
+
+begin
+	require 'rest_client'
+rescue Exception
+	warn "The 'rest_client' gem must be installed in order to use XPathQuery::Exist."
+	raise
+end
 
 require 'xpathquery/engine'
 require 'xpathquery/error'

@@ -46,7 +46,10 @@ Requirements
 The `xpathquery` gem depends on the `nokogiri` gem, even when the Nokogiri
 engine is not used.
 
-Additionally, the eXist-db backend depends on the `rest_client` gem.
+Additionally, the eXist-db backend depends on the `rest_client` gem. If
+you want to use the eXist-db backend you must install the `rest_client` gem,
+bacuse it is not a direct dependency of the `xpathquery` and RubyGems does
+not have the concept of "optional dependency".
 
 This gem requires a modern Ruby implementation as MRI 2.1, JRuby or Rubinious.
 
