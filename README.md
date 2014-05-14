@@ -23,7 +23,7 @@ with the details such as request envelopes, deserialization and so on.
 Namespaces are supported and are simple to use
 
     ns = { 'foaf' => 'http://xmlns.com/foaf/0.1/' }
-    results = nokogiri.query('//foaf:name', ns)
+    results = xml_remote.query('//foaf:name', ns)
 
 
 Rails logger integration
