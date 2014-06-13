@@ -22,7 +22,8 @@ Gem::Specification.new do |spec|
 
 	spec.add_development_dependency 'bundler', '~> 1.5'
 	spec.add_development_dependency 'rake'
-	spec.add_development_dependency 'rspec'
+	spec.add_development_dependency 'rspec', '>= 3'
+	spec.add_development_dependency 'rspec-collection_matchers'
 end
 
 # This is free software released into the public domain (CC0 license).
