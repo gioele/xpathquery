@@ -7,7 +7,17 @@ module XPathQuery
 			@logger = logger
 		end
 
-		def query(q, ns = nil)
+		def query(q, params = nil, ns = nil)
+			params ||= []
+
+			@logger and @logger.debug { "Executing query <#{q}> with params #{params.inspect}" }
+
+			query = apply_params(q, params)
+
+			return direct_query(query, ns)
+		end
+
+		def direct_query(q, ns = nil)
 			ns ||= {}
 
 			begin
@@ -17,6 +27,11 @@ module XPathQuery
 			end
 
 			return results
+		end
+
+		def apply_params(template, params)
+			query = template % params
+			return query
 		end
 	end
 end
