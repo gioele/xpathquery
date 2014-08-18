@@ -40,6 +40,10 @@ module XPathQuery
 
 			results = xml_response.xpath('/exist:result/*', NS)
 
+			if results.count == 1 && results.first.name == 'value'
+				results = [results.first.text]
+			end
+
 			return results
 		end
 

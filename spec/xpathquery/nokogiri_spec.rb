@@ -18,6 +18,12 @@ describe XPathQuery::Nokogiri do
 			results.map { |n| n.text }.should == ["Mel Petit", "Bertrand Müller"]
 		end
 
+		it "returns atomic values" do
+			results = nokogiri.query('string(//patron[1]/*)')
+			results.should have(1).item
+			results.first.should == "Mel Petit"
+		end
+
 		it "may return no results" do
 			results = nokogiri.query('//loan[not(@date)]')
 			results.should be_empty

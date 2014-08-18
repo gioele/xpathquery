@@ -10,6 +10,7 @@ module XPathQuery
 			@xml ||= ::Nokogiri::XML(open(@db_url))
 
 			results = @xml.xpath(q, ns)
+			results = Array(results)
 
 			return results
 		end
