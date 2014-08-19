@@ -39,6 +39,12 @@ describe XPathQuery::Nokogiri do
 			results = nokogiri.query('//patron[@xml:id="%{patron_id}"]', params)
 			results.should have(1).items
 		end
+
+		it "does not return more than max_results results" do
+			nokogiri = XPathQuery::Nokogiri.new(fixture_file(:library), :max_results => 2)
+			results = nokogiri.query('//book')
+			results.should have(2).items
+		end
 	end
 
 	describe "#direct_query" do

@@ -16,6 +16,8 @@ module XPathQuery
 			'exist' => 'http://exist.sourceforge.net/NS/exist',
 		}
 
+		UNLIMITED_RESULTS_ATTR = "max='999999'"
+
 		def perform_query(q, ns)
 			db = RestClient::Resource.new(@db_url)
 
@@ -53,9 +55,15 @@ module XPathQuery
 			# FIXME: sanitize query parameters
 			query_escaped = query.gsub('&', '&amp;').gsub('<', '&lt;')
 
+			if @max_results == :unlimited
+				limits_attr = UNLIMITED_RESULTS_ATTR
+			else
+				limits_attr = "max='#{@max_results}'"
+			end
+
 			# FIXME: build once using Nokogiri and then cache
 			message =<<EOD
-<query xmlns="http://exist.sourceforge.net/NS/exist" #{ns_attrs}>
+<query xmlns="http://exist.sourceforge.net/NS/exist" #{ns_attrs} #{limits_attr}>
 	<text>#{query_escaped}</text>
 </query>
 EOD

@@ -12,6 +12,10 @@ module XPathQuery
 			results = @xml.xpath(q, ns)
 			results = Array(results)
 
+			if @max_results != :unlimited
+				results = results[0..(@max_results-1)]
+			end
+
 			return results
 		end
 	end

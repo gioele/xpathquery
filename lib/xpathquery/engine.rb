@@ -2,9 +2,10 @@ require 'xpathquery/error'
 
 module XPathQuery
 	class Engine
-		def initialize(db_url, logger = nil)
+		def initialize(db_url, options = {})
 			@db_url = db_url
-			@logger = logger
+			@logger = options[:logger]
+			@max_results = options[:max_results] || :unlimited
 		end
 
 		def query(q, params = nil, ns = nil)
