@@ -1,8 +1,9 @@
 XPathQuery: query (remote) XML documents with XPath
-==================================================
+===================================================
 
-XPathQuery makes is easy to make queries on XML documents using various
-engines. Right now [eXist-db](http://exist-db.org) and Nokogiri are supported.
+XPathQuery offers a uniform interface to make queries on XML documents that
+are local, remote or stored on a XML database. Different XPath backends are
+supported (right now [eXist-db](http://exist-db.org) and Nokogiri).
 
 
 Examples
@@ -70,7 +71,7 @@ Development
 -----------
 
 Code
-: <http://svario.it/xpathquery/ruby> (redirects to GitHub)
+: <http://svario.it/xpathquery> (redirects to GitHub)
 
 Report issues
 : <http://svario.it/xpathquery/issues>

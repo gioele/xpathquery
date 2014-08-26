@@ -6,10 +6,15 @@ require 'xpathquery/version'
 Gem::Specification.new do |spec|
 	spec.name          = "xpathquery"
 	spec.version       = XPathQuery::VERSION
+
 	spec.authors       = ["Gioele Barabucci"]
 	spec.email         = ["gioele@svario.it"]
-	spec.description   = %q{TODO: Write a gem description}
-	spec.summary       = %q{TODO: Write a gem summary}
+	spec.summary       = "Query (remote) XML documents with XPath"
+	spec.description   = File.foreach('README.md').
+	                          chunk { |line| /^\s*$/ !~ line }.
+	                          to_a[2][1].join(' ').
+	                          delete("\n").
+	                          gsub(/\[(.*?)\]\(.*?\)/, '\1')
 	spec.homepage      = "http://svario.it/xpathquery"
 	spec.license       = "CC0"
 
