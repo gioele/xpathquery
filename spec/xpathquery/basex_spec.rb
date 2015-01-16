@@ -2,7 +2,7 @@ require 'spec_helpers'
 
 require 'xpathquery/basex'
 
-describe XPathQuery::BaseX do
+describe XPathQuery::BaseX, :needs_server => true do
 	describe "#query" do
 		let(:basex) { XPathQuery::BaseX.new('http://localhost:8984/rest/library') }
 
