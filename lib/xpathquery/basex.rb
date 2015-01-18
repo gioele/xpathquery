@@ -1,9 +1,9 @@
 require 'nokogiri'
 
 begin
-	require 'rest_client'
+	require 'rest-client'
 rescue Exception
-	warn "The 'rest_client' gem must be installed in order to use XPathQuery::BaseX."
+	warn "The 'rest-client' gem must be installed in order to use XPathQuery::BaseX."
 	raise
 end
 
