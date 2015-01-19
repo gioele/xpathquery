@@ -4,3 +4,6 @@ rvm:
   - 2.1.5
   - rbx-2
 env: SPEC_OPTS='--tag ~needs_server'
+addons:
+  code_climate:
+    repo_token: 0b69efaa2db1ea4efc58de712335a40b4b436cb5c35bd8a215ba3d801fc12c08

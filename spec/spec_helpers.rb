@@ -1,3 +1,6 @@
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 require 'rspec/collection_matchers'
 
 RSpec.configure do |config|
