@@ -23,7 +23,7 @@ module XPathQuery
 
 			begin
 				results = perform_query(q, ns)
-			rescue Exception
+			rescue Exception => ex
 				raise XPathQuery::Error.new(@db_url, q)
 			end
 
