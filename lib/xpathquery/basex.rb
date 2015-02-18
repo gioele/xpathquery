@@ -50,17 +50,19 @@ module XPathQuery
 		end
 
 		def query_message(query, ns)
-			ns_decls = ns.map { |name, uri| "declare namespace #{name}='#{uri}';" }.join(" ")
-
-			# FIXME: sanitize query parameters
-			query_escaped = query.gsub('&', '&amp;').gsub('<', '&lt;')
+			ns_decls = ns.merge(NS).map { |name, uri| "declare namespace #{name}='#{uri}';" }.join("\n")
 
 			# FIXME: build once using Nokogiri and then cache
 			message =<<EOD
-<query xmlns="#{NS['basex']}">
-	<text>#{ns_decls} #{query_escaped}</text>
-	<parameter name='wrap' value='yes'/>
-</query>
+<basex:query xmlns:basex="#{NS['basex']}">
+	<basex:text><![CDATA[
+		#{ns_decls}
+
+		let $results := ( #{query} ) ! element basex:result { . }
+
+		return <basex:results>{$results}</basex:results>
+	]]></basex:text>
+</basex:query>
 EOD
 			return message
 		end
