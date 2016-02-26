@@ -3,7 +3,8 @@ XPathQuery: query (remote) XML documents with XPath
 
 XPathQuery offers a uniform interface to make queries on XML documents that
 are local, remote or stored on a XML database. Different XPath backends are
-supported (right now [eXist-db](http://exist-db.org) and Nokogiri).
+supported (right now [BaseX](http://basex.org/),
+[eXist-db](http://exist-db.org) and Nokogiri).
 
 
 Examples
@@ -47,9 +48,9 @@ Requirements
 The `xpathquery` gem depends on the `nokogiri` gem, even when the Nokogiri
 engine is not used.
 
-Additionally, the eXist-db backend depends on the `rest_client` gem. If
-you want to use the eXist-db backend you must install the `rest_client` gem,
-bacuse it is not a direct dependency of the `xpathquery` and RubyGems does
+Additionally, the BaseX and eXist-db backends depend on the `rest_client` gem.
+If you want to use these backends, you must install the `rest_client` gem,
+because it is not a direct dependency of the `xpathquery` and RubyGems does
 not have the concept of "optional dependency".
 
 This gem requires a modern Ruby implementation as MRI 2.1, JRuby or Rubinious.
